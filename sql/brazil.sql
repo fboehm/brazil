@@ -66,8 +66,6 @@ FROM gh_rc2
 
 WHERE (
 user.`location` = 'Brazil'
-AND
-day = 1
 AND 
 month = 3
 AND
