@@ -1,4 +1,4 @@
-insert overwrite local directory 'march2015-tweets' -- OUTPUT FILE HERE
+insert overwrite local directory 'brazil-1b-tweets-april2015' -- OUTPUT FILE HERE
 
 row format delimited
 fields terminated by "\t"
@@ -65,11 +65,18 @@ regexp_replace(retweeted_status.user.lang, "[ \t\r\n]+", " ")
 FROM gh_rc2
 
 WHERE (
-user.`location` = 'Brazil'
-AND
-day = 1
+(LOWER(user.`location`) LIKE '%brazil%' OR
+LOWER(user.`location`) LIKE '%brasil%')
+AND (
+        	(LOWER(text) LIKE '%febre%') OR
+	        (LOWER(retweeted_status.text) LIKE '%febre%') OR
+        	(LOWER(text) LIKE '%dengue%') OR
+	        (LOWER(retweeted_status.text) LIKE '%dengue%') OR
+        	(LOWER(text) LIKE '%mosquito%') OR
+	        (LOWER(retweeted_status.text) LIKE '%mosquito%') 
+		)
 AND 
-month = 3
+month = 4
 AND
 year = 2015
 )
