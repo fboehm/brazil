@@ -5,6 +5,3 @@ twitteR::searchTwitter("")
 
 
 
-# working with dplyr databases vignette
-
-my_db <- src_sqlite("", create = FALSE)
