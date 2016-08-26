@@ -68,8 +68,6 @@ WHERE (
 (LOWER(user.`location`) LIKE '%brazil%' OR 
 LOWER(user.`location`) LIKE '%brasil%')
 AND 
-day = ${hiveconf:DAY}
-AND 
 month = ${hiveconf:MONTH}
 AND
 year = ${hiveconf:YEAR}
