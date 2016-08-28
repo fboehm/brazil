@@ -1,9 +1,13 @@
 # calls to google maps API
 load("data/user_data.RData")
-source("geocoding-master/geocode_helpers.R")
+
+`%notin%` <- function(elem, set){
+  !(elem %in% set)
+  }
+
 #Install modified version of the geocode function
 #(that now includes the api_key parameter):
-source("geocoding-master/modified_geocode.R")
+source("R/geocoding-master/modified_geocode.R")
 geocode_apply<-function(x){
   geocode(x, source = "google", output = "all", api_key="AIzaSyBnR6m37FrIR7SkDj7ZPyg5pmbrL68PWFI")
 }
@@ -17,5 +21,6 @@ library(plyr)
 #geocode_results <- sapply(foo, geocode_apply, simplify = FALSE)
 #####
 locs <- user_data$location[!is.na(user_data$location)]
+locs <- locs[1:10]
 geocode_results <- sapply(locs, geocode_apply, simplify = FALSE)
 save(list = "geocode_results", "geocode_results.RData")

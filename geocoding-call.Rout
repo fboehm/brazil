@@ -1,0 +1,72 @@
+
+R version 3.2.2 (2015-08-14) -- "Fire Safety"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # calls to google maps API
+> load("data/user_data.RData")
+> 
+> `%notin%` <- function(elem, set){
++   !(elem %in% set)
++   }
+> 
+> #Install modified version of the geocode function
+> #(that now includes the api_key parameter):
+> source("R/geocoding-master/modified_geocode.R")
+> geocode_apply<-function(x){
++   geocode(x, source = "google", output = "all", api_key="AIzaSyBnR6m37FrIR7SkDj7ZPyg5pmbrL68PWFI")
++ }
+> # api key calling will take time, I think
+> library(jsonlite)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(plyr)
+------------------------------------------------------------------------------
+You have loaded plyr after dplyr - this is likely to cause problems.
+If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+library(plyr); library(dplyr)
+------------------------------------------------------------------------------
+
+Attaching package: ‘plyr’
+
+The following objects are masked from ‘package:dplyr’:
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise,
+    summarize
+
+> #####
+> #foo <- user_data$location[1:500]
+> #foo <- foo[!is.na(foo)]
+> #geocode_results <- sapply(foo, geocode_apply, simplify = FALSE)
+> #####
+> locs <- user_data$location[!is.na(user_data$location)]
+> locs <- locs[1:10]
+> geocode_results <- sapply(locs, geocode_apply, simplify = FALSE)
+Information from URL : https://maps.googleapis.com/maps/api/geocode/json?address=An%C3%A1polis,%20Brasil&sensor=false&key=AIzaSyBnR6m37FrIR7SkDj7ZPyg5pmbrL68PWFI
+Error in url(url_string) : https:// URLs are not supported
+Calls: sapply -> lapply -> FUN -> geocode -> url
+Execution halted
