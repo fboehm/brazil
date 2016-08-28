@@ -1,9 +1,9 @@
 # calls to google maps API
 load("data/user_data.RData")
-source("https://raw.githubusercontent.com/LucasPuente/geocoding/master/geocode_helpers.R")
+source("geocoding-master/geocode_helpers.R")
 #Install modified version of the geocode function
 #(that now includes the api_key parameter):
-source("https://raw.githubusercontent.com/LucasPuente/geocoding/master/modified_geocode.R")
+source("geocoding-master/modified_geocode.R")
 geocode_apply<-function(x){
   geocode(x, source = "google", output = "all", api_key="AIzaSyBnR6m37FrIR7SkDj7ZPyg5pmbrL68PWFI")
 }
