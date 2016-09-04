@@ -32,7 +32,6 @@ vignettes/*.pdf
 <<<<<<< HEAD
 hive-stuff
 =======
-
-
 data/
 >>>>>>> d9939e599ea027a8486344b1163eff5693f086ba
+geocode_results.RData

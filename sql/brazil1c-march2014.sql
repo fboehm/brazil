@@ -65,8 +65,67 @@ regexp_replace(retweeted_status.user.lang, "[ \t\r\n]+", " ")
 FROM gh_rc2
 
 WHERE (
-(LOWER(user.`location`) LIKE '%brazil%' OR
-LOWER(user.`location`) LIKE '%brasil%')
+(LOWER(user.`location`) LIKE '%brazil%' OR 
+LOWER(user.`location`) LIKE '%brasil%' OR
+LOWER(user.`location`) LIKE '%acre%' OR 
+LOWER(user.`location`) LIKE '%rio bravo%' OR
+LOWER(user.`location`) LIKE '%alagoas%' OR 
+LOWER(user.`location`) LIKE '%maceio%' OR
+LOWER(user.`location`) LIKE '%amapa%' OR 
+LOWER(user.`location`) LIKE '%macapa%' OR
+
+LOWER(user.`location`) LIKE '%amazonas%' OR 
+LOWER(user.`location`) LIKE '%manaus%' OR
+LOWER(user.`location`) LIKE '%bahia%' OR 
+LOWER(user.`location`) LIKE '%salvador%' OR
+LOWER(user.`location`) LIKE '%ceara%' OR 
+LOWER(user.`location`) LIKE '%fortaleza%' OR
+LOWER(user.`location`) LIKE '%distrito federal%' OR 
+LOWER(user.`location`) LIKE '%brasilia%' OR
+
+LOWER(user.`location`) LIKE '%espirito santo%' OR 
+LOWER(user.`location`) LIKE '%vitoria%' OR
+LOWER(user.`location`) LIKE '%goias%' OR 
+LOWER(user.`location`) LIKE '%goiania%' OR
+LOWER(user.`location`) LIKE '%maranhao%' OR 
+LOWER(user.`location`) LIKE '%sao luis%' OR
+LOWER(user.`location`) LIKE '%mato grosso%' OR 
+LOWER(user.`location`) LIKE '%cuiaba%' OR
+
+LOWER(user.`location`) LIKE '%campo grande%' OR 
+LOWER(user.`location`) LIKE '%minas gerais%' OR
+LOWER(user.`location`) LIKE '%belo horizonte%' OR 
+LOWER(user.`location`) LIKE '%para%' OR
+LOWER(user.`location`) LIKE '%belem%' OR 
+LOWER(user.`location`) LIKE '%paraiba%' OR
+LOWER(user.`location`) LIKE '%joao pessoa%' OR 
+LOWER(user.`location`) LIKE '%parana%' OR
+
+LOWER(user.`location`) LIKE '%curitiba%' OR 
+LOWER(user.`location`) LIKE '%pernambuco%' OR
+LOWER(user.`location`) LIKE '%recife%' OR 
+LOWER(user.`location`) LIKE '%piaui%' OR
+LOWER(user.`location`) LIKE '%teresina%' OR 
+LOWER(user.`location`) LIKE '%rio de janeiro%' OR
+LOWER(user.`location`) LIKE '%rio grande do norte%' OR 
+LOWER(user.`location`) LIKE '%natal%' OR
+
+LOWER(user.`location`) LIKE '%rio grande do sul%' OR 
+LOWER(user.`location`) LIKE '%porto alegre%' OR
+LOWER(user.`location`) LIKE '%rondonia%' OR 
+LOWER(user.`location`) LIKE '%porto velho%' OR
+LOWER(user.`location`) LIKE '%roraima%' OR 
+LOWER(user.`location`) LIKE '%boa vista%' OR
+LOWER(user.`location`) LIKE '%santa catarina%' OR 
+LOWER(user.`location`) LIKE '%florianopolis%' OR
+
+LOWER(user.`location`) LIKE '%sao paulo%' OR 
+LOWER(user.`location`) LIKE '%sergipe%' OR
+LOWER(user.`location`) LIKE '%aracaju%' OR 
+LOWER(user.`location`) LIKE '%tocantins%' OR
+LOWER(user.`location`) LIKE '%palmas%' 
+)
+
 AND (
         	(LOWER(text) LIKE '%mae%') OR
 	        (LOWER(retweeted_status.text) LIKE '%mae%') OR
