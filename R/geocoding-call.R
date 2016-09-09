@@ -22,6 +22,6 @@ library(plyr)
 #####
 user_data$location[user_data$location == ""] <- NA
 locs <- user_data$location[!is.na(user_data$location)]
-locs <- locs[1:1000]
+locs <- locs[1:20000]
 geocode_results <- sapply(locs, geocode_apply, simplify = FALSE)
 save(list = "geocode_results", file = "geocode_results.RData")
